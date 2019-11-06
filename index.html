@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Formulário EloGroup</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="bs-example">
+    <form method="POST" action="http://localhost:8080/" id='form-contato' onsubmit="DoSubmit()">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" maxlength=35>
+        <span class='msg-erro msg-nome'></span>
+      </div>
+      <div class="form-group">
+        <label for="telefone">Telefone</label>
+        <input type="text" class="form-control" id="telefone" maxlength=10>
+        <span class='msg-erro msg-telefone'></span>
+      </div>
+
+      <div class="form-group">
+        <label for="conheceu">Como nos conheceu?</label>
+        <select id="conheceu" name="conheceu" class="form-control">
+          <option value="tv">TV</option>
+          <option value="internet">Internet</option>
+          <option value="outros">Outros</option>
+        </select>
+        <span class='msg-erro msg-conhececeu'></span>
+      </div>
+
+      <div class="form-group">
+        <label for="possui_rede">Possui rede social?</label>
+        <br>
+        <label>Sim</label>
+        <input type="radio" id="possui_rede" name="possui_rede" value="Sim" onclick="habilitar()">
+        <label>Não</label>
+        <input type="radio" id="possui_rede" name="possui_rede" value="Não">
+      </div>
+
+      <div class="form-group">
+        <div class="redeSocialCtn" id="redeSocialCtn">
+          <label for="redeSocial">Quais?</label>
+          <br>
+          <label> Facebook</label>
+          <input type="checkbox" name="redeSociais[]" value="facebook">
+          <label>Instagram</label>
+          <input type="checkbox" name="redeSociais[]" value="instagram">
+          <label>LinkedIn</label>
+          <input type="checkbox" name="redeSociais[]" value="linkedin">
+          <span class='msg-erro msg_redeSocial'></span>
+        </div>
+      </div>
+      <input type="submit" value="send" name="Submit" id="btn-click" onclick="return validaCadastro()">
+    </form>
+  </div>
+  <script type="text/javascript" src="logic.js"></script>
+</body>
+
+</html>
